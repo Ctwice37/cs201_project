@@ -10,7 +10,7 @@ public class Driver {
 
 
         Scanner input = new Scanner(System.in);
-        int userID = 0;
+        int userID = 0;                             //temp variable -- user ID validation
         String terminate = "N";
 
 
@@ -28,8 +28,7 @@ public class Driver {
         System.out.println("A ---- Create New Employee\nB ---- Display Number Of Books\n" +
                 "C ---- ****\nD ---- Display Number Of Employees\n" +
                 "E ---- Add Book to Inventory\nF ---- Find Book in Stock\n" +
-                "G ---- Check for Food Item in Stock\nH ---- ****\n\n" +
-                "To Exit session enter \"N\" ");
+                "G ---- Check for Food Item in Stock\nH ---- ****\n\n");
 
         String option = input.next();
 
@@ -84,6 +83,7 @@ public class Driver {
                         System.out.println("yes, we have " + foodOrDrink + " in-Stock");
                     else
                         System.out.println("Sorry, we do not have " + foodOrDrink + " in-Stock");
+                    break;
             }
             case "H": {System.out.println("#### ####");}
 
@@ -94,7 +94,7 @@ public class Driver {
             default: {
                 System.out.println("Invalid Option");
             }
-        }
+        }//sout.println("To Exit session enter \"N\"); ------------- prompt user for "exit program" statement
 
     }
 
