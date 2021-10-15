@@ -18,35 +18,40 @@ public class Driver {
             userID = validateInput;
 
 
+        System.out.println("WELCOME USER " + userID);
+        System.out.println("CHOOSE FROM THE BELOW OPTIONS:");
+        System.out.println("A ---- Create New Employee\nB\nC\nD\nE\nF\nG\nH");
 
-        //if true assigns input to (int userID)
+        String option = input.next();
 
-         //sout.print(WELCOME USER ### CHOOSE FROM BELOW OPTIONS A..... \n B...... \n C ..... -- H)
-        //char option = input.next();
-
-        //switch (option){
-            //Case A:         --maps to getter/setter method
-            //Case B:
-            //Case C:
-            //Case D:
-            //Case E:
-            //Case F:
-            //Case G:
-            //Case H:
+        switch (option){
+                        case "A":  {
+                            System.out.println("Create new Employee");
+                            System.out.println("Give First Name, last name and ID");
+                            StoreDirectory.addNewEmployee(input.next(),input.next(), input.nextDouble());
+                        }
+        }
+//                        case B:
+//                        case C:
+//                        case D:
+//                        case E:
+//                        case F:
+//                        case G:
+//                        case H:
 
         //------->RETURN A-H .... ASK User for another letter or N(exit program)
         //N ------------ exit program
         //Y ------------- sout(print options again)
     }
 
-    public static int numberOfBooks(){
-
-    }
-    public static int displayNumberOfEmployees(){}
-    public static void addEmployee(){}
-    public static void addBook(){}
-    public static boolean checkIfBookIsInStock(){}
-    public static boolean checkWhetherFoodItemInMarket(){}
+//    public static int numberOfBooks(){
+//
+//    }
+//    public static int displayNumberOfEmployees(){}
+//    public static void addEmployee(){}
+//    public static void addBook(){}
+//    public static boolean checkIfBookIsInStock(){}
+//    public static boolean checkWhetherFoodItemInMarket(){}
 
 
 

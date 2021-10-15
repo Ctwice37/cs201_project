@@ -10,7 +10,7 @@ public class Market {
 
 
     public static void setFoodItem(String foodItem) {
-        this.foodItem = foodItem;
+        Market.foodItem = foodItem;
     }
 
     public static int numFoodItems(){

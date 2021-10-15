@@ -1,44 +1,45 @@
 package bookStorePackage;
 
 import java.util.ArrayList;
-import java.util.function.ToDoubleBiFunction;
 
 public class BookStore {
-    private static ArrayList<Employee> employee;
-    private static ArrayList<Book> book;
+    private static ArrayList<Employee> employee = new ArrayList<>();
+    private static ArrayList<Book> book = new ArrayList<>();
 
 
-    public static int getNumBooks(){
+    public static int getNumBooks() {
         return book.size();
 
     }
-    public static int getNumEmployees(){
+
+    public static int getNumEmployees() {
         return employee.size();
     }
 
-    public static void addNewBook(String title, String authorFirstName, String authorLastName){
+    public static void addNewBook(String title, String authorFirstName, String authorLastName) {
         book.add(new Book(title, authorFirstName, authorLastName));
     }
-    public static void addNewEmployee(String firstName, String lastName, double ID){
+
+    public static void addNewEmployee(String firstName, String lastName, double ID) {
         employee.add(new Employee(firstName, lastName, ID));
     }
-//     TODO: add try/catch for book.size == 0
-    public static boolean bookIsInStock(String title){
+
+    //     TODO: add try/catch for book.size == 0
+    public static void bookIsInStock(String title) {
         for (int i = 0; i < book.size(); i++) {
-            if (book.get(i).getTitle().matches(title))
-                return true;
-            else
-                return false;
-            }
+            if (book.get(i).getTitle().matches(title)) {
+                return ;
+
+            } else
+                return ;
 
         }
-
-    public ArrayList<Employee> getEmployee() {
-        return employee;
     }
+        public ArrayList<Employee> getEmployee () {
+            return employee;
+        }
 
-    public ArrayList<Book> getBook() {
-        return book;
+        public ArrayList<Book> getBook () {
+            return book;
+        }
     }
-}
-}

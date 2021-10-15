@@ -26,12 +26,12 @@ public class StoreDirectory {
         BookStore.addNewBook(title, authorFirstName, authorLastName);
     }
 
-    public static boolean marketCarriesFoodItem(String foodItem) {
+    public static void marketCarriesFoodItem(String foodItem) {
         for (int i = 0; i < Market.numFoodItems(); i++) {
             if (Market.getFoodItems().get(i).matches(foodItem))
-                return true;
+                return ;
             else
-                return false;
+                return ;
         }
     }
 }
