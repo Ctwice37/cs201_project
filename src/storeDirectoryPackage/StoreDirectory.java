@@ -2,6 +2,7 @@ package storeDirectoryPackage;
 
 import bookStorePackage.BookStore;
 import marketPackage.Market;
+import IDSPackage.Ids;
 
 
 public class StoreDirectory {
@@ -27,11 +28,17 @@ public class StoreDirectory {
     }
 
     public static boolean marketCarriesFoodItem(String foodItem) {
-        for (int i = 0; i < Market.numFoodItems(); i++) {
-            if (Market.getFoodItems().get(i).matches(foodItem))
-                return true;
+        String[] items = Market.getSTORE_ITEMS();
+        for (String s : items) {
+            if(s.matches(foodItem))
+                return true;}
 
-        } return false;
+        return false;
+    }
+    public static boolean validateLogin(String id){
+        return Ids.isGoodId(id);
 
     }
-}
+
+    }
+
