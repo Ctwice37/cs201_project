@@ -6,7 +6,7 @@ import marketPackage.Market;
 
 public class StoreDirectory {
 
-    public int getNumberOfBooks() {
+    public static int getNumberOfBooks() {
         return BookStore.getNumBooks();
     }
 
