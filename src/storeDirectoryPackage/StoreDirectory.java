@@ -10,7 +10,7 @@ public class StoreDirectory {
         return BookStore.getNumBooks();
     }
 
-    public int getNumberOfBookStoreEmployees() {
+    public static int getNumberOfBookStoreEmployees() {
         return BookStore.getNumEmployees();
     }
 
@@ -18,20 +18,20 @@ public class StoreDirectory {
         BookStore.addNewEmployee(firstName, lastName, ID);
     }
 
-    public static void bookIsInStock(String title) {
-        BookStore.bookIsInStock(title);
+    public static boolean bookIsInStock(String title) {
+        return BookStore.bookIsInStock(title);
     }
 
     public static void addNewBook(String title, String authorFirstName, String authorLastName) {
         BookStore.addNewBook(title, authorFirstName, authorLastName);
     }
 
-    public static void marketCarriesFoodItem(String foodItem) {
+    public static boolean marketCarriesFoodItem(String foodItem) {
         for (int i = 0; i < Market.numFoodItems(); i++) {
             if (Market.getFoodItems().get(i).matches(foodItem))
-                return ;
-            else
-                return ;
-        }
+                return true;
+
+        } return false;
+
     }
 }

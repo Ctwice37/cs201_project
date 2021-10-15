@@ -7,6 +7,7 @@ public class BookStore {
     private static ArrayList<Book> book = new ArrayList<>();
 
 
+
     public static int getNumBooks() {
         return book.size();
 
@@ -25,15 +26,12 @@ public class BookStore {
     }
 
     //     TODO: add try/catch for book.size == 0
-    public static void bookIsInStock(String title) {
+    public static boolean bookIsInStock(String title) {
         for (int i = 0; i < book.size(); i++) {
             if (book.get(i).getTitle().matches(title)) {
-                return ;
-
-            } else
-                return ;
-
-        }
+                return true;
+            }
+        } return false;
     }
         public ArrayList<Employee> getEmployee () {
             return employee;
