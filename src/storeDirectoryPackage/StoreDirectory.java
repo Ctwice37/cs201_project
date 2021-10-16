@@ -4,6 +4,8 @@ import bookStorePackage.BookStore;
 import marketPackage.Market;
 import IDSPackage.Ids;
 
+import java.util.Scanner;
+
 
 public class StoreDirectory {
 
@@ -42,6 +44,13 @@ public class StoreDirectory {
     }
     public static boolean validateLogin(String id){
         return Ids.isGoodId(id);
+
+    }
+
+    public static String bookTitle(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Give the book's title:");
+        return input.nextLine();
 
     }
 
