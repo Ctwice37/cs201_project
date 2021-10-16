@@ -29,9 +29,7 @@ public class Driver {
             wait(1000);
             bootProgram();
         }
-//        bootProgram();
-//        System.out.println("\nMake Another Query? (Y/N)");
-//        if ()
+
 
         wait(1000);
         System.out.println("\n------------SESSION TERMINATED------------");
@@ -102,14 +100,15 @@ public class Driver {
                 case "E": {
                     System.out.println("\n------Find Book in Stock------\n");
                     System.out.println("Input the title of Book you're Looking for");
+
                     if (StoreDirectory.bookIsInStock(input.next())) {
                         System.out.println("yes, we have this title in-stock");
-
                     } else {
                         System.out.println("sorry, we do not have this title in-stock");
                     }
                     System.out.println("\n--------------------------------------\n");
                     break;
+
                 }
                 case "F": {
                     System.out.println("\n------Inventory of Books In-Stock------\n");
@@ -132,16 +131,15 @@ public class Driver {
 
 
                 case "N": {
-                    System.out.println("\nEnding Session...");
+                    System.out.println("\nEnding Session...\n");
                     option = "N";
-                    System.out.println();
                     break;
                 }
 
 
                 default: {
-                    System.out.println("Invalid Option");
-                    System.out.println();
+                    System.out.println("Invalid Option\n");
+
                 }
 
             }
