@@ -1,116 +1,139 @@
 package driverPackage;
 
 
+import bookStorePackage.Book;
+import bookStorePackage.BookStore;
 import storeDirectoryPackage.StoreDirectory;
 import java.util.Scanner;
+
 
 public class Driver {
     public static void main(String[] args) {
 
 
         Scanner input = new Scanner(System.in);
-        String userID = "";                             //temp variable -- user ID validation
+        String userID = "";                           //temp variable -- user ID validation
 
 
 
         System.out.println("Input 3 Digit user ID");
 
         String validateInput = input.next();
-        if (!StoreDirectory.validateLogin(validateInput))
+        if (!StoreDirectory.validateLogin(validateInput)) {
+            wait(2000);
             System.out.println("invalid login");
-        else {
+        } else {
             userID = validateInput;
-            System.out.println("WELCOME USER " + userID);
+            wait(500);
+            System.out.println("\n\nWELCOME [USER_" + userID + "]");
+            wait(1000);
             bootProgram();
         }
 //        bootProgram();
 //        System.out.println("\nMake Another Query? (Y/N)");
 //        if ()
 
-
+        wait(1000);
+        System.out.println("\n------------SESSION TERMINATED------------");
     }
 
     public static void bootProgram() {
         String option;
         do {
             Scanner input = new Scanner(System.in);
-            System.out.println("CHOOSE FROM THE FOLLOWING OPTIONS:");
-            System.out.println("A ---- Create New Employee\nB ---- Display Number Of Books\n" +
-                    "C ---- ****\nD ---- Display Number Of Employees\n" +
-                    "E ---- Add Book to Inventory\nF ---- Find Book in Stock\n" +
-                    "G ---- Check for Food Item in Stock\nH ---- ****\n\n");
-            option = input.next();
+            System.out.println("CHOOSE FROM THE FOLLOWING OPTIONS:\n");
+            wait(1000);
+            System.out.println("\tA ---- Create New Employee\n" +
+                    "\tB ---- Display Number Of Books\n" +
+                    "\tC ---- Display Number Of Employees\n" +
+                    "\tD ---- Add Book to Inventory\n" +
+                    "\tE ---- Find Book in Stock\n" +
+                    "\tF ---- List All Books in Stock\n" +
+                    "\tH ---- Check for Food Item in Stock\n" +
+                    "\tN **** Exit Session\n");
+            option = input.next().toUpperCase();
 
 
             switch (option) {
 
                 case "A": {
 
-                    System.out.println("####Create new Employee####");
+                    System.out.println("\n------Create new Employee------\n");
                     System.out.println("Give First Name, last name and ID:");
-                    StoreDirectory.addNewEmployee(input.next(), input.next(), input.nextDouble());
-                    System.out.println();
+                    StoreDirectory.addNewEmployee(input.next().trim(), input.next().trim(), input.nextDouble());
+                    System.out.println("\n--------------------------------------\n");
                     break;
                 }
 
                 case "B": {
 
-                    System.out.println("####Disply Number of Books####");
+                    System.out.println("\n------Display Number of Books------\n");
+                    wait(1000);
                     System.out.println("The BookStore currently has: " + StoreDirectory.getNumberOfBooks() + " book(s)");
-                    System.out.println();
+                    System.out.println("\n--------------------------------------\n");
                     break;
                 }
-                //case "C": {////////////////////////// }
 
-                case "D": {
-                    System.out.println("####Display Number of Employees####");
+                case "C": {
+                    System.out.println("\n------Display Number of Employees------\n");
                     System.out.println("The BookStore currently employs " + StoreDirectory.getNumberOfBookStoreEmployees() + " people");
-                    System.out.println();
+                    System.out.println("\n--------------------------------------\n");
                     break;
                 }
 
 
+//
+                case "D": {
+                    System.out.println("\n------Add Book to Inventory------\n");
+
+                    System.out.println("Give title of the book:");
+                    String title = input.next();
+
+                    System.out.println("Authors First Name:");
+                    String FirstName = input.next();
+                    System.out.println("Authors Last Name");
+                    String LastName = input.next();
+
+                    StoreDirectory.addNewBook(title, FirstName, LastName);
+                    System.out.println("\n--------------------------------------\n");
+                    break;
+                }
 //
                 case "E": {
-                    System.out.println("###Add Book to Inventory####");
-                    System.out.println("Give title of the book, followed by the author's first and last name:");
-                    StoreDirectory.addNewBook(input.next(), input.next(), input.next());
-                    System.out.println();
-                    break;
-                }
-//
-                case "F": {
-                    System.out.println("####Find Book in Stock####");
+                    System.out.println("\n------Find Book in Stock------\n");
                     System.out.println("Input the title of Book you're Looking for");
-                    if (StoreDirectory.bookIsInStock(input.next()))
+                    if (StoreDirectory.bookIsInStock(input.next())) {
                         System.out.println("yes, we have this title in-stock");
 
-                    else
+                    } else {
                         System.out.println("sorry, we do not have this title in-stock");
-                    System.out.println();
+                    }
+                    System.out.println("\n--------------------------------------\n");
+                    break;
+                }
+                case "F": {
+                    System.out.println("\n------Inventory of Books In-Stock------\n");
+                    BookStore.getBook();
+                    System.out.println("\n--------------------------------------\n");
                     break;
                 }
 //
-                case "G": {
-                    System.out.println("####Check for Food item in Stock####");
+                case "H": {
+                    System.out.println("\n------Check for Food item in Stock------\n");
                     System.out.println("Which Food item are you checking?");
                     String foodOrDrink = input.next();
                     if (StoreDirectory.marketCarriesFoodItem(foodOrDrink))
                         System.out.println("yes, we have " + foodOrDrink + " in-Stock");
                     else
                         System.out.println("Sorry, we do not have " + foodOrDrink + " in-Stock");
-                    System.out.println();
-                    break;
-                }
-                case "H": {
-                    System.out.println("#### ####");
-                    System.out.println();
+                    System.out.println("\n--------------------------------------\n");
                     break;
                 }
 
 
                 case "N": {
-                    System.out.println("####SESSION TERMINATED####");
+                    System.out.println("\nEnding Session...");
+                    option = "N";
                     System.out.println();
                     break;
                 }
@@ -120,10 +143,30 @@ public class Driver {
                     System.out.println("Invalid Option");
                     System.out.println();
                 }
+
             }
-        } while (!option.matches("N"));
+            wait(2000);
+            if (option == "N")
+                break;
+
+             else {
+                System.out.println("************CONTINUE SESSION? (Y/N)************");
+                option = input.next().toUpperCase();
+            }
+
+        } while (!option.matches("N") && option.matches("Y"));
 
 
+    }public static void wait(int ms)
+    {
+        try
+        {
+            Thread.sleep(ms);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
     }
 
 }

@@ -7,6 +7,7 @@ import IDSPackage.Ids;
 
 public class StoreDirectory {
 
+
     public static int getNumberOfBooks() {
         return BookStore.getNumBooks();
     }
@@ -21,6 +22,10 @@ public class StoreDirectory {
 
     public static boolean bookIsInStock(String title) {
         return BookStore.bookIsInStock(title);
+    }
+
+    public static void addNewBook(String title) {
+        BookStore.addNewBook(title);
     }
 
     public static void addNewBook(String title, String authorFirstName, String authorLastName) {

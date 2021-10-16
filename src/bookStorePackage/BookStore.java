@@ -3,9 +3,9 @@ package bookStorePackage;
 import java.util.ArrayList;
 
 public class BookStore {
+
     private static ArrayList<Employee> employee = new ArrayList<>();
     private static ArrayList<Book> book = new ArrayList<>();
-
 
 
     public static int getNumBooks() {
@@ -15,6 +15,10 @@ public class BookStore {
 
     public static int getNumEmployees() {
         return employee.size();
+    }
+
+    public static void addNewBook(String title) {
+        book.add(new Book(title));
     }
 
     public static void addNewBook(String title, String authorFirstName, String authorLastName) {
@@ -33,11 +37,15 @@ public class BookStore {
             }
         } return false;
     }
-        public ArrayList<Employee> getEmployee () {
+        public static ArrayList<Employee> getEmployee () {
             return employee;
         }
 
-        public ArrayList<Book> getBook () {
-            return book;
+        public static void getBook () {
+            for (Book b : book)
+                System.out.println(b.getTitle() + "\n\tBy: " + b.getAuthorFirstName() + " " + b.getAuthorLastName() + "\n");
+
+
+            }
         }
-    }
+
