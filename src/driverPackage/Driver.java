@@ -1,7 +1,7 @@
 package driverPackage;
 
 
-import bookStorePackage.Book;
+
 import bookStorePackage.BookStore;
 import storeDirectoryPackage.StoreDirectory;
 import java.util.Scanner;
@@ -33,7 +33,7 @@ public class Driver {
 //        System.out.println("\nMake Another Query? (Y/N)");
 //        if ()
 
-        wait(1000);
+        wait(500);
         System.out.println("\n------------SESSION TERMINATED------------");
     }
 
@@ -145,8 +145,8 @@ public class Driver {
                 }
 
             }
-            wait(2000);
-            if (option == "N")
+            wait(1500);
+            if (option.matches("N"))
                 break;
 
              else {
