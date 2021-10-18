@@ -84,8 +84,7 @@ public class Driver {
                 case "D": {
                     System.out.println("\n------Add Book to Inventory------\n");
 
-                    System.out.println("Give title of the book:");
-                    String title = input.next();
+                    String title = StoreDirectory.bookTitle();
 
                     System.out.println("Authors First Name:");
                     String FirstName = input.next();
